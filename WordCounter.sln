@@ -6,6 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter.Application", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter.Infrastructure", "WordCounter.Infrastructure\WordCounter.Infrastructure.csproj", "{19210799-68E7-4793-B98C-62872BD1E9BF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{3971198C-6C56-444A-BD17-EB7F2FFCC28E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{85D8D463-751B-48BC-B7AB-14526568381F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter.Application.Test", "Test\WordCounter.Application.Test\WordCounter.Application.Test.csproj", "{C9C3AE71-2CC4-4E89-BEBF-6247600BF68D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +30,15 @@ Global
 		{19210799-68E7-4793-B98C-62872BD1E9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19210799-68E7-4793-B98C-62872BD1E9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19210799-68E7-4793-B98C-62872BD1E9BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C3AE71-2CC4-4E89-BEBF-6247600BF68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C3AE71-2CC4-4E89-BEBF-6247600BF68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C3AE71-2CC4-4E89-BEBF-6247600BF68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C3AE71-2CC4-4E89-BEBF-6247600BF68D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9BE7ED41-2BF2-4351-9775-EC5A65408A10} = {3971198C-6C56-444A-BD17-EB7F2FFCC28E}
+		{7B9009B5-5C62-453D-9C15-259A3041C888} = {3971198C-6C56-444A-BD17-EB7F2FFCC28E}
+		{19210799-68E7-4793-B98C-62872BD1E9BF} = {3971198C-6C56-444A-BD17-EB7F2FFCC28E}
+		{C9C3AE71-2CC4-4E89-BEBF-6247600BF68D} = {85D8D463-751B-48BC-B7AB-14526568381F}
 	EndGlobalSection
 EndGlobal
