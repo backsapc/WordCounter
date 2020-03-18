@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using WordCounter.Application;
 
-namespace WordCounter.Infrastructure
+namespace WordCounter.Infrastructure.File
 {
     public class FileTextProvider : ITextProvider
     {
@@ -16,7 +16,7 @@ namespace WordCounter.Infrastructure
         }
         
         static IEnumerable<string> GetText(string path) =>
-            File.ReadLines(path);
+            System.IO.File.ReadLines(path);
         
         public async IAsyncEnumerable<string> GetTextAsync([EnumeratorCancellation] CancellationToken token)
         {

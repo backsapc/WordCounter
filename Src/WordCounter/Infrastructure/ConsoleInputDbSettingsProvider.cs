@@ -1,7 +1,7 @@
 ﻿using WordCounter.Infrastructure.EntityFramework;
 using WordCounter.Infrastructure.EntityFramework.Provider;
 
-namespace WordCounter
+namespace WordCounter.Infrastructure
 {
     public class ConsoleInputDbSettingsProvider: IProviderDbSettingsProvider
     {

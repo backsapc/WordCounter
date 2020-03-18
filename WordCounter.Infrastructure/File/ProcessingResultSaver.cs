@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using WordCounter.Application;
 using WordCounter.Application.Processing;
 
-namespace WordCounter.Infrastructure
+namespace WordCounter.Infrastructure.File
 {
     public class ProcessingResultSaver : IProcessingResultSaver
     {
@@ -13,7 +13,7 @@ namespace WordCounter.Infrastructure
             const string fileName = "result.txt";
             var path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
             
-            await File.WriteAllTextAsync(path, result.GetStringRepresentation(), token);
+            await System.IO.File.WriteAllTextAsync(path, result.GetStringRepresentation(), token);
         }
     }
 }
