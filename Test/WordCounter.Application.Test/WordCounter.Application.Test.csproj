@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\WordCounter.Application\WordCounter.Application.csproj" />
+      <ProjectReference Include="..\..\Src\WordCounter.Application\WordCounter.Application.csproj" />
     </ItemGroup>
 
 </Project>
