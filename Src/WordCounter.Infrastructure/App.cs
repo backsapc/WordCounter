@@ -58,7 +58,7 @@ namespace WordCounter.Infrastructure
             {
                 SaverOption.Console => new ConsoleSaver(),
                 SaverOption.File    => new FileResultSaver(saverSettings.FileName),
-                SaverOption.Database when saverSettings.DatabaseType.HasValue => new EfSaver(
+                SaverOption.Database when saverSettings.DatabaseType.HasValue => EfSaver.Create(
                     DbSettings.Create(saverSettings.DatabaseType.Value,
                                       saverSettings.ConnectionString)),
                 _ => throw new NotImplementedException()
@@ -80,7 +80,7 @@ namespace WordCounter.Infrastructure
             {
                 ProviderOption.Console => new ConsoleProvider(),
                 ProviderOption.File    => new FileTextProvider(providerSettings.FileName),
-                ProviderOption.Database when providerSettings.DatabaseType.HasValue => new EfProvider(
+                ProviderOption.Database when providerSettings.DatabaseType.HasValue => EfProvider.Create(
                     DbSettings.Create(providerSettings.DatabaseType.Value,
                                       providerSettings.ConnectionString)),
                 _ => throw new NotImplementedException()
