@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Autofac" Version="5.1.2" />
       <PackageReference Include="System.Linq.Async" Version="4.0.0" />
     </ItemGroup>
 

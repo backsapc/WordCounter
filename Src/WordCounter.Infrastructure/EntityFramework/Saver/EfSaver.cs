@@ -7,17 +7,16 @@ namespace WordCounter.Infrastructure.EntityFramework.Saver
 {
     public class EfSaver : IProcessingResultSaver
     {
-        private readonly ISaverDbSettingsProvider _saverDbSettingsProvider;
+        private readonly DbSettings _dbSettings;
 
-        public EfSaver(ISaverDbSettingsProvider saverDbSettingsProvider)
+        public EfSaver(DbSettings dbSettings)
         {
-            _saverDbSettingsProvider = saverDbSettingsProvider;
+            _dbSettings = dbSettings;
         }
 
         public async Task SaveAsync(IProcessingResult result, CancellationToken token)
         {
-            DbSettings settings = _saverDbSettingsProvider.GetSettings();
-            using var context = new OutputContext(settings);
+            using var context = new OutputContext(_dbSettings);
 
             var newResult = new ProcessingResult
             {

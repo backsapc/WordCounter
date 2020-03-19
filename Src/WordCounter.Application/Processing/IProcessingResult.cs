@@ -2,6 +2,7 @@
 {
     public interface IProcessingResult
     {
+        public object GetResult();
         string GetStringRepresentation();   
     }
 }

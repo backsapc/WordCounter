@@ -8,6 +8,12 @@
         }
         
         public T Result { get; }
+        
+        object IProcessingResult.GetResult()
+        {
+            return Result;
+        }
+
         public abstract string GetStringRepresentation();
     }
 }
