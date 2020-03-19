@@ -1,10 +1,7 @@
-﻿using System;
-using System.Threading;
+﻿#nullable enable
 using System.Threading.Tasks;
+using Autofac;
 using WordCounter.Application;
-using WordCounter.Application.Processing;
-using WordCounter.Application.Processing.CountWords;
-using WordCounter.Infrastructure.Console;
 
 namespace WordCounter
 {
@@ -12,20 +9,11 @@ namespace WordCounter
     {
         static async Task Main(string[] args)
         {
-            
-            var cts = new CancellationTokenSource();
-            
-            ITextProvider provider = new ConsoleProvider();
-            ITextProcessor<int> processor = new CalculateWordsProcessor();
-            IProcessingResultSaver saver = new ConsoleSaver();
+            var container = ContainerConfig.Configure();
+            await using var scope = container.BeginLifetimeScope();
+            var app = scope.Resolve<IApp>();
 
-            // How would you enter values?
-            // What actions apply?
-            // How to save the results?
-            
-            var text = provider.GetTextAsync(cts.Token);
-            IProcessingResult result = await processor.GetResultAsync(text, cts.Token);
-            await saver.SaveAsync(result, cts.Token);
+            await app.RunAsync();
         }
     }
 }

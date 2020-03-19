@@ -30,5 +30,11 @@ namespace WordCounter.Application.Processing.CountWords
             var wordsCount = await text.SumAsync(ProcessText, token);
             return CountWordsResult.Create(wordsCount);
         }
+
+        async Task<IProcessingResult> ITextProcessor.GetResultAsync(IAsyncEnumerable<string> text, CancellationToken token)
+        {
+            var result = await GetResultAsync(text, token);
+            return result;
+        }
     }
 }

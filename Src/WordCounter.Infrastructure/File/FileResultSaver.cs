@@ -6,14 +6,18 @@ using WordCounter.Application.Processing;
 
 namespace WordCounter.Infrastructure.File
 {
-    public class ProcessingResultSaver : IProcessingResultSaver
+    public class FileResultSaver : IProcessingResultSaver
     {
+        private readonly string _filePath;
+
+        public FileResultSaver(string filePath)
+        {
+            _filePath = filePath;
+        }
+
         public async Task SaveAsync(IProcessingResult result, CancellationToken token)
         {
-            const string fileName = "result.txt";
-            var path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
-            
-            await System.IO.File.WriteAllTextAsync(path, result.GetStringRepresentation(), token);
+            await System.IO.File.WriteAllTextAsync(_filePath, result.GetStringRepresentation(), token);
         }
     }
 }
