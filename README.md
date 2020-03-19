@@ -24,6 +24,6 @@ The data will be read from ProcessTexts table of database. The schema must be:
 | Id            | int           |
 | Text          | varchar       |
 
-Same restriction apply to output database sink.
+Same restriction apply to output database sink, but the data will be saved to ProcessingResults table.
 
 Thanks for your interest.
