@@ -9,7 +9,7 @@ namespace WordCounter.Infrastructure.EntityFramework.Saver
     {
         private readonly DbSettings _dbSettings;
 
-        public EfSaver(DbSettings dbSettings)
+        private EfSaver(DbSettings dbSettings)
         {
             _dbSettings = dbSettings;
         }
@@ -25,6 +25,11 @@ namespace WordCounter.Infrastructure.EntityFramework.Saver
             
             await context.ProcessingResults.AddAsync(newResult, token);
             await context.SaveChangesAsync(token);
+        }
+        
+        public static EfSaver Create(DbSettings settings)
+        {
+            return new EfSaver(settings);
         }
     }
 }

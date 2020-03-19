@@ -9,7 +9,7 @@ namespace WordCounter.Infrastructure.EntityFramework.Provider
     {
         private readonly DbSettings _dbSettings;
         
-        public EfProvider(DbSettings dbSettings)
+        private EfProvider(DbSettings dbSettings)
         {
             _dbSettings = dbSettings;
         }
@@ -23,10 +23,9 @@ namespace WordCounter.Infrastructure.EntityFramework.Provider
                           .Select(x => x.Text);
         }
 
-        public bool IsValidSetting(DbSettings settings)
+        public static EfProvider Create(DbSettings settings)
         {
-            using var context = new InputContext(settings);
-            return context.Database.CanConnect();
+            return new EfProvider(settings);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using WordCounter.Infrastructure.EntityFramework;
+﻿#nullable enable
+using WordCounter.Infrastructure.EntityFramework;
 
 namespace WordCounter.Infrastructure.Settings.Provider
 {
